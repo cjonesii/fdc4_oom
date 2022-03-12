@@ -1,0 +1,9 @@
+
+fdc4_gui.py is a graphical interface to display the contents of the connected QSFP cables
+
+	Run the demo script
+	   cd <oom>/oom/fdc4; python3 fdc4_gui.py -url 192.168.1.100
+
+A graphical inventory of the QSFP cables will be presented.
+Left click on the line or lines of interest, right click to bring up a menu of sub-menus.
+Select a line on the menu and that demo will be presented.
