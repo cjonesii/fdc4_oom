@@ -1,5 +1,5 @@
 # oom
-This repository is a fork of
+This repository is a copy of
 
 Open Optical Monitoring - http://www.opencompute.org/wiki/Networking/SpecsAndDesigns#Open_Optical_Monitoring
 
