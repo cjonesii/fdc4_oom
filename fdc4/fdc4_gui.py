@@ -15,6 +15,11 @@ import sys
 
 from tkinter import *
 
+import logging
+
+logging.getLogger("requests").setLevel(logging.WARNING)
+logging.getLogger("urllib3").setLevel(logging.WARNING)
+
 
 def portstr(port):
     formatstr = '%-11s %-13s %-16s %-16s %-16s'
@@ -148,7 +153,7 @@ class OOMdemo:
         invmenu.add_command(label="Serial ID Keys", command=self.serial_id_h)
         invmenu.add_command(label="DOM Status", command=self.dom_h)
         invmenu.add_command(label="All Keys", command=self.all_h)
-        invmenu.add_command(label="Code Sample", command=self.code_h)
+        #invmenu.add_command(label="Code Sample", command=self.code_h)
 
         invmenu.post(event.x_root, event.y_root)
 
