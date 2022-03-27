@@ -22,8 +22,21 @@ from flask import Flask, request
 from oom.oomjsonshim import jpdict_to_cport, cport_to_json
 from oom.oomtypes import c_port_t
 from oom import *
+from sysmon import *
 
 
+import logging
+
+logging.getLogger("requests").setLevel(logging.ERROR)
+logging.getLogger("urllib3").setLevel(logging.ERROR)
+logging.getLogger("gpio").setLevel(logging.ERROR)
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
+
+
+def sysmon_get_json_data():
+    data = sysmon_get_data()
+    js_out = '{"data": "%s",\n}' % (data)
+    return(js_out)
 #
 # Read from EEPROM, pass it over the network as JSON
 #
@@ -139,6 +152,9 @@ def getOOMdata():
             ptr += 1
         retval = oom_set_json_memory_sff(cport, address, page, offset,
                                          length, data)
+        return retval
+    if command['cmd'] == 'sgp':
+        retval = oom_get_json_memory_sff(cport, address, page, offset, length)
         return retval
 
 

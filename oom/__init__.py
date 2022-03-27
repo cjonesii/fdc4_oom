@@ -14,3 +14,4 @@
 #
 
 from .oom import *
+from .sysmon import *

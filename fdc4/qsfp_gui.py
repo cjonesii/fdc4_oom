@@ -15,14 +15,6 @@ import sys
 
 from tkinter import *
 
-import logging
-
-logging.getLogger("requests").setLevel(logging.ERROR)
-logging.getLogger("urllib3").setLevel(logging.ERROR)
-logging.getLogger("gpio").setLevel(logging.ERROR)
-logging.getLogger('werkzeug').setLevel(logging.ERROR)
-
-
 def portstr(port):
     formatstr = '%-11s %-13s %-16s %-16s %-16s'
     modtype = type_to_str(port.port_type)
@@ -84,7 +76,7 @@ def printcode(newroot, pb, port, portnum):
     pb.itemconfig(END, foreground="red")
 
 
-class OOMdemo:
+class OOM:
     def __init__(self, master):
         # put up the main inventory screen
         self.portlist = oom_get_portlist()
@@ -257,5 +249,5 @@ class OOMdemo:
 
 if __name__ == "__main__":
     root = Tk()
-    OOMdemo(root)
+    OOM(root)
     root.mainloop()
